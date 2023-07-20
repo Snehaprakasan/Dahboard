@@ -1,0 +1,113 @@
+<mat-sidenav-container autosize>
+  <mat-sidenav #sidenav mode="side" opened="isExpanded">
+    <mat-nav-list>
+      <mat-list-item (click)="isExpanded = !isExpanded">
+        <mat-icon
+          mat-list-icon
+          class="menu-button"
+          [ngClass]="{ rotated: isExpanded }"
+          >menu
+        </mat-icon>
+        <h3 *ngIf="isExpanded" class="head">heylink.</h3>
+      </mat-list-item>
+      <mat-list-item
+        [routerLink]="'start'"
+        (click)="onMenuItemClick('Get Started')"
+        [ngStyle]="{
+          color:
+            selectedItemName === 'Get Started' ? 'rgb(121 161 211)' : 'black'
+        }"
+      >
+        <mat-icon class="icon">all_out</mat-icon>
+        <span *ngIf="isExpanded" class="menu-item">Get Started</span>
+      </mat-list-item>
+      <mat-list-item
+        [routerLink]="'overview'"
+        (click)="onMenuItemClick('Overview')"
+        [ngStyle]="{
+          color: selectedItemName === 'Overview' ? 'rgb(121 161 211)' : 'black'
+        }"
+      >
+        <mat-icon>assessment</mat-icon>
+        <span *ngIf="isExpanded" class="menu-item">Overview</span>
+      </mat-list-item>
+      <mat-list-item
+        [routerLink]="'insight'"
+        (click)="onMenuItemClick('Insights')"
+        [ngStyle]="{
+          color: selectedItemName === 'Insights' ? 'rgb(121 161 211)' : 'black'
+        }"
+      >
+        <mat-icon>horizontal_split</mat-icon>
+        <span *ngIf="isExpanded" class="menu-item">Insights</span>
+        <mat-icon *ngIf="isExpanded" class="menu-item"
+          >keyboard_arrow_down</mat-icon
+        >
+      </mat-list-item>
+      <mat-list-item
+        [routerLink]="'advertise'"
+        (click)="onMenuItemClick('Advertisers')"
+        [ngStyle]="{
+          color:
+            selectedItemName === 'Advertisers' ? 'rgb(121 161 211)' : 'black'
+        }"
+      >
+        <mat-icon>settings_overscan</mat-icon>
+        <span *ngIf="isExpanded" class="menu-item">Advertisers</span>
+      </mat-list-item>
+      <mat-list-item
+        [routerLink]="'discover'"
+        (click)="onMenuItemClick('Discover')"
+        [ngStyle]="{
+          color: selectedItemName === 'Discover' ? 'rgb(121 161 211)' : 'black'
+        }"
+      >
+        <mat-icon>album</mat-icon>
+        <span *ngIf="isExpanded" class="menu-item">Discover</span>
+        <mat-icon *ngIf="isExpanded" class="menu-item"
+          >keyboard_arrow_down</mat-icon
+        >
+      </mat-list-item>
+      <mat-list-item
+        [routerLink]="'tool'"
+        (click)="onMenuItemClick('Tools')"
+        [ngStyle]="{
+          color: selectedItemName === 'Tools' ? 'rgb(121 161 211)' : 'black'
+        }"
+      >
+        <mat-icon>build</mat-icon>
+        <span *ngIf="isExpanded" class="menu-item">Tools</span>
+        <mat-icon *ngIf="isExpanded" class="menu-item"
+          >keyboard_arrow_down</mat-icon
+        >
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="toolbar">
+      <h4>{{ selectedItemName }}</h4>
+      <span class="example-spacer"></span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-card-image"
+        viewBox="0 0 16 16"
+      >
+        <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+        <path
+          d="M1.5 2A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13zm13 1a.5.5 0 0 1 .5.5v6l-3.775-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12v.54A.505.505 0 0 1 1 12.5v-9a.5.5 0 0 1 .5-.5h13z"
+        />
+      </svg>
+      <mat-form-field>
+        <mat-select [(ngModel)]="selectedValue" name="option">
+          <mat-option *ngFor="let option of options" [value]="option.value">
+            {{ option.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

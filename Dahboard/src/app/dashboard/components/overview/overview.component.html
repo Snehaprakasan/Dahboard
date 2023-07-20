@@ -1,0 +1,97 @@
+<div class="container-fluid">
+    <div class="d-flex justify-content-start w-100 mt-4 g-0 shadow">
+      <div class="px-4 col col-lg-5 d-flex justify-content-start">
+        <div class="py-4 w-50" >
+          <div class="distance">
+          <small>PageViews</small>
+          <p class="content">540.280</p>
+        </div>
+        <small class="text-success inline"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" fill="currentColor" class="bi bi-arrow-up-right" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z"/>
+        </svg> 2.15%</small>&nbsp;
+          <small class="text-body-tertiary">Epc:308.20 USD</small>    
+        </div>
+        <div>
+          <canvas id="smallChart" width="200" height="150" #smallChart></canvas>
+        </div>
+      </div>
+      <hr>
+      <div class="p-4 col col-lg-2">
+        <div class="distance">
+        <small>Clicks</small>
+        <p class="content">70.210</p>
+      </div>
+        <small class="text-danger inline"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" fill="currentColor" class="bi bi-arrow-down-right" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M14 13.5a.5.5 0 0 1-.5.5h-6a.5.5 0 0 1 0-1h4.793L2.146 2.854a.5.5 0 1 1 .708-.708L13 12.293V7.5a.5.5 0 0 1 1 0v6z"/>
+        </svg>1.10%</small>&nbsp;
+        <small class="text-body-tertiary">Ctr: 24.5%</small>
+      </div>
+      <hr>
+      <div class="p-4 col col-lg-2">
+        <div class="distance">
+        <small>Conversations</small>
+        <p class="content">42.340</p>
+        </div>
+        <small class="text-success inline"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" fill="currentColor" class="bi bi-arrow-up-right" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z"/>
+        </svg> 2.15%</small>&nbsp;
+        <small class="text-body-tertiary">Ctr: 28.6%</small>
+      </div>
+      <hr>
+      <div class="p-4 col col-lg-2">
+        <div class="distance">
+        <small>Comission</small>
+        <p class="content">24.136</p>
+      </div>
+        <small class="text-success inline"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" fill="currentColor" class="bi bi-arrow-up-right" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z"/>
+        </svg> 0.24%</small>&nbsp;
+        <small class="text-body-tertiary">Epc: 14 USD</small>
+      </div>
+    </div>
+    <div class="secondsection">
+      <div class="chartsection">
+        <mat-tab-group
+          animationDuration="0ms"
+          mat-stretch-tabs="false"
+          mat-align-tabs="end"
+        >
+          <mat-tab label="Pageviews">
+            <div class="content">
+              <canvas id="myChart" width="698" height="250" #mychart></canvas>
+            </div>
+          </mat-tab>
+          <mat-tab label="Clicks">Clicks </mat-tab>
+          <mat-tab label="Conversations">Conversations</mat-tab>
+          <mat-tab label="Commission">Commission</mat-tab>
+        </mat-tab-group>
+      </div>
+  
+      <div style="flex: 1">
+        <h6 class="head">Networks</h6>
+        <table
+          mat-table
+          [dataSource]="dataSource"
+          class="mat-elevation-z8"
+        >
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Type</th>
+            <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+          </ng-container>
+  
+          <ng-container matColumnDef="weight">
+            <th mat-header-cell *matHeaderCellDef>Clicks</th>
+            <td mat-cell *matCellDef="let element">{{ element.weight }}</td>
+          </ng-container>
+  
+          <ng-container matColumnDef="symbol">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element">{{ element.symbol }}</td>
+          </ng-container>
+  
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+      </div>
+    </div>
+  </div>

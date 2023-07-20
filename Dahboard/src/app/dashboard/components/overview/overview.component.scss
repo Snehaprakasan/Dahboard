@@ -1,0 +1,35 @@
+
+.head{
+    font-size: 20px; 
+    font-family: unset;
+}
+hr{
+  width: 1px;
+  background-color: gray;
+}
+.content{
+  font-size: 18px;
+  font-weight: bold;
+}
+.distance{
+  line-height: 2;
+}
+.secondsection{
+  display: flex; 
+  margin-top:36px
+}
+
+.chartsection{
+  flex: 2;
+  padding: 30px
+}
+
+table{
+  width: 310px
+}
+
+mat-tab{
+.content{
+  width: 100%;
+}
+}
